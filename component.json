@@ -1,0 +1,17 @@
+{
+  "name": "langPicker",
+  "repo": "fs-components/lang-picker",
+  "description": "Language Picker for FamilySearch.org",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "component/zest": "*",
+    "component/cookie": "*",
+    "component/event": "*"
+    },
+  "development": {},
+  "license": "MIT",
+  "scripts": [
+    "index.js"
+  ]
+}
