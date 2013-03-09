@@ -48,7 +48,8 @@ module.exports = function LangPicker(el, config) {
   
   //set lang cookie and refresh
   function setLocale(e) {
-    var locale = this.getAttribute('data-locale');
+    var evt_el = e.target || e.srcElement; //IE vs others 
+    var locale = evt_el.getAttribute('data-locale');
 
     //set fslang cookie to locale
     cookie('fslanguage', locale);
