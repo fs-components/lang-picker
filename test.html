@@ -1,0 +1,42 @@
+<!Doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="build/build.js"></script>
+</head>
+<body>
+test
+
+<div class="language-picker-container" data-control="ddPopover" data-config='{"trigger":".language-picker-trigger", "target": ".language-picker-menu"}'>
+    <a href="javascript:;" class="last language-picker-trigger" data-control="LangPicker" data-config='{"pickerItems": ".language-picker-menu .lang-list a"}'>Language</a>
+    <div class="language-picker-menu clearfix">
+      <ul class="lang-list">
+        <li><a data-locale="de" href="javascript:;">Deutsch</a><a data-locale="pt" href="javascript:;">Português</a></li>
+        <li><a data-locale="en" href="javascript:;">English</a><a data-locale="ru" href="javascript:;">Русский</a></li>
+        <li><a data-locale="es" href="javascript:;">Español</a><a data-locale="ja" href="javascript:;">中文</a></li>
+        <li><a data-locale="fr" href="javascript:;">Français</a><a data-locale="ko" href="javascript:;">한국어</a></li>
+        <li class="last"><a data-locale="it" href="javascript:;">Italiano</a><a data-locale="zh" href="javascript:;">日本語</a></li>
+      </ul>
+     
+    </div>
+  </div>
+
+
+  <div class="qwery-tests" id="test3">
+    <span class="one"><a href="#"></a></span>
+    <span><a href="#"></a></span>
+
+  </div>
+
+</body>
+
+<script>
+  var qwery = require("ded-qwery");
+
+  console.log(qwery(".language-picker-menu"));
+  console.log(qwery("a", ".qwery-tests"));
+  console.log(qwery("a", document.getElementById('test3')));
+  require("langPicker")();
+</script>
+</html>
