@@ -51,9 +51,14 @@ module.exports = function LangPicker(el, config) {
   function setLocale(e) {
     var evt_el = e.target || e.srcElement; //IE vs others 
     var locale = evt_el.getAttribute('data-locale');
+    var cookieDomain = null;
+
+    if (location.hostname.match("familysearch.org")){ //in prod, set to .familysearch.org. Else it'll be null.
+      cookieDomain = ".familysearch.org";
+    }
 
     //set fslang cookie to locale
-    cookie('fslanguage', locale);
+    cookie('fslanguage', locale, {path: "/", domain: cookieDomain}); //set domain, path explicitly, to be compatible with subdomains etc.
    
     //refresh the page
     location.reload();
