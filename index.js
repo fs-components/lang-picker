@@ -22,6 +22,7 @@ module.exports = function LangPicker(el, config) {
 
   var activePickerItem; //active locale in the dropdown
   var langPickerItems = config.pickerItems; //links in langPicker. TODO: set the context!
+  var lang_picker_item_nodes;
   //locale set in language cookie
   var locale_cookie = cookie('fslanguage');
 
