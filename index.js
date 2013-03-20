@@ -13,8 +13,9 @@
  * Module Deps
  *
  */
-var cookie = require("cookie"); //swap this out with qwery...
-var getEl = require("qwery"); //swap this out with qwery...
+var cookie = require("cookie"); 
+require('query-qwery'); //query fallback for old browser
+var query = require("query"); 
 var events = require("event");  
 
 module.exports = function LangPicker(el, config) {
@@ -30,7 +31,7 @@ module.exports = function LangPicker(el, config) {
   if (locale_cookie) {
     //fetch the name of the locale based on shortname from the DOM. ex: Find <li data-locale='de'>Deutsch</li>
     // go up one level before finidng the langPickerItems
-    activePickerItem = getEl(langPickerItems + '[data-locale="' + locale_cookie + '"]', context)[0]; //context: el.parentNode.
+    activePickerItem = query(langPickerItems + '[data-locale="' + locale_cookie + '"]', context); //context: el.parentNode.
     //set the current locale text in the Language dd 
     el.innerHTML = activePickerItem.innerHTML;
 
@@ -39,7 +40,7 @@ module.exports = function LangPicker(el, config) {
   }
 
 
-  lang_picker_item_nodes = getEl(langPickerItems, context);
+  lang_picker_item_nodes = query.all(langPickerItems, context);
   //FIXME: make this a delegate
   //add click listeners on the langPickerItems
   for (var i = lang_picker_item_nodes.length - 1; i >= 0; i--) {
