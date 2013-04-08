@@ -65,4 +65,4 @@ module.exports = function LangPicker(el, config) {
     location.reload();
   }
 
-}
+};
